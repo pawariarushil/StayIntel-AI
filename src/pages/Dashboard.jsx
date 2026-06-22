@@ -1,10 +1,10 @@
 import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 
-function Dashboard() {
+function Dashboard({ darkMode, setDarkMode }) {
   return (
     <div className="page-wrapper">
-      <Navbar />
+      <Navbar darkMode={darkMode} setDarkMode={setDarkMode} />
 
       <main className="main-content page-content">
         <h1>Dashboard</h1>

@@ -1,17 +1,70 @@
+import { useEffect, useState } from "react";
 import { Routes, Route } from "react-router-dom";
 
 import Home from "./pages/Home";
 import About from "./pages/About";
 import Dashboard from "./pages/Dashboard";
 import Login from "./pages/Login";
+import ComponentsDemo from "./pages/ComponentsDemo";
 
 function App() {
+  const [darkMode, setDarkMode] = useState(false);
+
+  useEffect(() => {
+    document.body.classList.toggle("dark", darkMode);
+  }, [darkMode]);
+
   return (
     <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/login" element={<Login />} />
+      <Route
+        path="/"
+        element={
+          <Home
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+          />
+        }
+      />
+
+      <Route
+        path="/about"
+        element={
+          <About
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+          />
+        }
+      />
+
+      <Route
+        path="/dashboard"
+        element={
+          <Dashboard
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+          />
+        }
+      />
+
+      <Route
+        path="/login"
+        element={
+          <Login
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+          />
+        }
+      />
+
+      <Route
+        path="/components"
+        element={
+          <ComponentsDemo
+            darkMode={darkMode}
+            setDarkMode={setDarkMode}
+          />
+        }
+      />
     </Routes>
   );
 }
